@@ -85,10 +85,10 @@ const scenes: SceneData[] = [
     icon: <Users className="w-4 h-4" />,
     image: "/images/scene-meeting.jpg",
     messages: [
-      { text: "已识别对话场景，正在记录对话内容。", delay: 0 },
-      { text: "检测到3位对话参与者：张经理、李设计师、王工程师。", delay: 1500 },
-      { text: "对话关键词：项目进度、技术方案、资源协调。", delay: 3500 },
-      { text: "提醒：您之前记录的问题点尚未提出，需要我在适当时机提醒您吗？", delay: 6000 },
+      { text: "检测到对话场景，已开启实时翻译与记录功能。", delay: 0 },
+      { text: "对话者：Mike (英语)，正在为您实时翻译。", delay: 1500 },
+      { text: "翻译：\"我们计划下周发布新版本，需要你们团队的支持。\"", delay: 3500 },
+      { text: "建议回复：\"没问题，我们会全力配合。\" 需要我帮您组织语言吗？", delay: 6000 },
     ],
     hud: {
       time: "14:30",
