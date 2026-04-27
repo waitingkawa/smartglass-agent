@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Home, Car, Users, Sparkles, Volume2, MessageSquare, Send } from "lucide-react"
+import { Home, Bike, Users, Sparkles, Volume2, MessageSquare, Send, Presentation } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-type Scene = "home" | "driving" | "conversation"
+type Scene = "home" | "cycling" | "meeting" | "conversation"
 
 interface SceneData {
   id: Scene
@@ -45,20 +45,38 @@ const scenes: SceneData[] = [
     },
   },
   {
-    id: "driving",
-    name: "驾驶",
-    icon: <Car className="w-4 h-4" />,
-    image: "/images/scene-driving.jpg",
+    id: "cycling",
+    name: "骑行",
+    icon: <Bike className="w-4 h-4" />,
+    image: "/images/scene-cycling.jpg",
     messages: [
-      { text: "检测到驾驶模式，已切换至导航辅助。", delay: 0 },
-      { text: "当前车速 65km/h，前方道路畅通。", delay: 1500 },
-      { text: "500米后右转进入中山路，预计15分钟到达目的地。", delay: 3500 },
-      { text: "提醒：您已连续驾驶1小时，建议在前方服务区稍作休息。", delay: 6000 },
+      { text: "检测到骑行模式，已开启骑行导航辅助。", delay: 0 },
+      { text: "当前速度 18km/h，心率 125bpm，状态良好。", delay: 1500 },
+      { text: "前方200米右转进入滨江绿道，请减速慢行。", delay: 3500 },
+      { text: "提醒：您已骑行45分钟，消耗约320大卡，建议适时补充水分。", delay: 6000 },
     ],
     hud: {
       time: "09:15",
       battery: 72,
-      speed: "65 km/h",
+      speed: "18 km/h",
+      heartRate: "125 bpm",
+    },
+  },
+  {
+    id: "meeting",
+    name: "会议",
+    icon: <Presentation className="w-4 h-4" />,
+    image: "/images/scene-conference.jpg",
+    messages: [
+      { text: "检测到会议场景，已自动开启会议记录模式。", delay: 0 },
+      { text: "本次会议：Q2产品规划会，参会人员6人。", delay: 1500 },
+      { text: "讨论要点：产品迭代方向、用户反馈分析、下季度目标设定。", delay: 3500 },
+      { text: "提醒：您准备的数据报告尚未展示，需要我在适当时机提醒您吗？", delay: 6000 },
+    ],
+    hud: {
+      time: "10:05",
+      battery: 68,
+      meetingInfo: "Q2产品规划会",
     },
   },
   {
@@ -69,13 +87,12 @@ const scenes: SceneData[] = [
     messages: [
       { text: "已识别对话场景，正在记录对话内容。", delay: 0 },
       { text: "检测到3位对话参与者：张经理、李设计师、王工程师。", delay: 1500 },
-      { text: "对话关键词：产品迭代、用户反馈、下季度规划。", delay: 3500 },
+      { text: "对话关键词：项目进度、技术方案、资源协调。", delay: 3500 },
       { text: "提醒：您之前记录的问题点尚未提出，需要我在适当时机提醒您吗？", delay: 6000 },
     ],
     hud: {
-      time: "10:05",
-      battery: 68,
-      meetingInfo: "Q2产品规划会",
+      time: "14:30",
+      battery: 55,
     },
   },
 ]
